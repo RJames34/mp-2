@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 // Added type because webstorm was giving me a flag for missing it
 import  type { Bean, BeanResponse } from "../types/types";
-import BeanPreview from "./BeanPreview";
+import BeanPreview , {BeansDiv}from "./BeanPreview";
+
 
 export default function BeansListContent() {
     const [beans, setBeans] = useState<Bean[]>([]);
@@ -22,11 +23,11 @@ export default function BeansListContent() {
         <div>
             <h1>Jelly Belly Beans</h1>
 
-            <div>
+            <BeansDiv>
                 {beans.map((bean) => (
                     <BeanPreview key={bean.beanId} bean={bean} />
                 ))}
-            </div>
+            </BeansDiv>
         </div>
     );
 }
